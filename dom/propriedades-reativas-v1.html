@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>{{ title }}</p>
+    <p>{{ counter }}</p>
+    <p>{{ result }}</p>
+    <button v-on:click='counter_plus(1)'>Somar 1</button>
+    <!-- <input type="text" v-bind:value="title" v-on:input.enter='change_title($event)'> -->
+    <input type="text" v-bind:value="title" v-model='title'>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    app = new Vue({
+      el: '#app',
+      data: {
+        title: 'Hello World',
+        counter: 0,
+      },
+      computed: {
+        result: function(){
+          return this.counter >= 5 ?
+            'Maior ou igual a 5' : 'Menor que 5'
+        }
+      },
+      methods: {
+        counter_plus: function(num){
+          this.counter += num
+        },
+        change_title: function(e){
+          this.title = e.target.value
+        }
+      }
+    })
+  </script>
+</body>
+</html>
