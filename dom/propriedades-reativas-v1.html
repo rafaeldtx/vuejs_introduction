@@ -11,9 +11,9 @@
     <p>{{ title }}</p>
     <p>{{ counter }}</p>
     <p>{{ result }}</p>
-    <button v-on:click='counter_plus(1)'>Somar 1</button>
+    <button @click='counter_plus(1)'>Somar 1</button>
     <!-- <input type="text" v-bind:value="title" v-on:input.enter='change_title($event)'> -->
-    <input type="text" v-bind:value="title" v-model='title'>
+    <input type="text" :value="title" v-model='title'>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script>
