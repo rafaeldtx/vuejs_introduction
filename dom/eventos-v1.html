@@ -10,7 +10,9 @@
   <div id="app">
     <p>{{ counter }}</p>
     <button v-on:click="somar(5, $event)">Somar 5</button>
-    <p v-on:mousemove="mouse_position">Mouse: {{ x }} e {{ y }}</p>
+    <p v-on:mousemove="mouse_position">Mouse: {{ x }} e {{ y }}
+      <span v-on:mousemove.stop>PARA AQUI!!</span>
+    </p>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script>
@@ -30,6 +32,9 @@
           this.x = e.clientX
           this.y = e.clientY
         },
+        // stop(e) {
+        //   e.stopPropagation()
+        // }
       }
     })
   </script>
