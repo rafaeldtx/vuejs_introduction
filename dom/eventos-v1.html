@@ -13,6 +13,10 @@
     <p v-on:mousemove="mouse_position">Mouse: {{ x }} e {{ y }}
       <span v-on:mousemove.stop>PARA AQUI!!</span>
     </p>
+    <hr>
+    <p>
+      <input type="text" v-on:keyup.enter='show_alert'>
+    </p>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script>
@@ -34,7 +38,10 @@
         },
         // stop(e) {
         //   e.stopPropagation()
-        // }
+        // },
+        show_alert: function(e){
+          alert('Exibição de alerta')
+        }
       }
     })
   </script>
