@@ -8,8 +8,8 @@
 </head>
 <body>
   <div id="app">
-    <p v-once>{{ counter }}</p>
-    <button v-on:click="somar">Somar 1</button>
+    <p>{{ counter }}</p>
+    <button v-on:click="somar(5, $event)">Somar 5</button>
     <p v-on:mousemove="mouse_position">Mouse: {{ x }} e {{ y }}</p>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -22,8 +22,9 @@
         y: 0,
       },
       methods: {
-        somar: function(e) {
-          this.counter++
+        somar: function(v, event) {
+          console.log(event)
+          this.counter += v
         },
         mouse_position: function(e) {
           this.x = e.clientX
