@@ -1,6 +1,6 @@
 <script src="https://unpkg.com/vue"></script>
 <style>
-  #app {
+  .caixas {
     display: flex;
     justify-content: space-around;
   }
@@ -24,18 +24,34 @@
   }
 </style>
 <div id="app">
-  <div class="demo" :class="style" @click='setC1 = !setC1'></div>
-  <div class="demo"></div>
-  <div class="demo"></div>
+  <div class="caixas">
+    <div class="demo" :class="style" @click='setC1 = !setC1'></div>
+    <div class="demo" :style="{'background-color': cor}"></div>
+    <div class="demo" :style='myStyle'></div>
+    <div class="demo" :style='[myStyle, {height: altura}]'></div>
+  </div>
+  <hr>
+  <input type="text" v-model="cor">
+  <input type="text" v-model="largura">
 </div>
+
 
 <script>
   new Vue({
     el: '#app',
     data: {
-      setC1: false
+      setC1: false,
+      cor: 'purple',
+      largura: 20,
+      altura: 10,
     },
     computed: {
+      myStyle(){
+        return {
+          backgroundColor: this.color,
+          width: `${this.largura}px`
+        }
+      },
       style(){
         return {
           c1: this.setC1,
