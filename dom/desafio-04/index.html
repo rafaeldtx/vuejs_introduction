@@ -45,7 +45,8 @@
 	<!-- 6) Crie uma barra de progresso simples com setInterval 
     e binding de estilo. -->
 	<h2>#06</h2>
-	<div>
+		<button @click="setVisible">Ver Barra</button>
+		<div v-if="seen">
 		<button @click="iniciarProgresso">Iniciar</button>
 		<div class='barra-progresso'>
 			<div class="progresso" :style="{width: width}"></div>

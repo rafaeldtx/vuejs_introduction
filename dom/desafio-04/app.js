@@ -10,9 +10,14 @@ new Vue({
 			width: '100px',
 			height: '100px',
 		},
-		width: '0'
+		width: '0',
+
+		seen: false
 	},
 	methods: {
+		setVisible() {
+			this.seen = !this.seen
+		},
 		iniciarEfeito() {
 			setInterval(() => {
 				this.classe1 = this.classe1 == 'destaque'
