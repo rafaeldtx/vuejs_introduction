@@ -6,11 +6,13 @@
     <li v-for="(cor, i) in cores">{{ i + 1 }}) {{ cor }}</li>
   </ul>
   <hr>
+
   <div v-for="(cor, i) in cores">
     <h1>{{ cor }}</h1>
     <p>{{ i }}</p>
   </div>
   <hr>
+
   <ul>
     <li v-for='pessoa in pessoas'>
       <div v-for='(valor, chave, index) in pessoa'>
@@ -18,6 +20,9 @@
       </div>
     </li>
   </ul>
+  <hr>
+
+  <div v-for="n in 10">{{ n }}</div>
 </div>
 
 <script>
