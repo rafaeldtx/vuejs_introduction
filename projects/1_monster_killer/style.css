@@ -1,0 +1,80 @@
+.card {
+  padding: 1.3rem;
+  box-shadow: 0 0 0.3rem #000;
+  margin-bottom: 1.5rem;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.rounded {
+  border-radius: 8px;
+}
+
+.padding {
+  padding: 1rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.4rem;
+}
+
+/* BUTTONS */
+
+.btn {
+  padding: 0.5rem;
+}
+
+.btn-primary {
+  background-color: blue;
+  color: white;
+}
+
+.btn-success {
+  background-color: green;
+  color: white;
+}
+
+.btn-warning {
+  background-color: orange;
+  color: white;
+}
+
+.btn-danger {
+  background-color: red;
+  color: white;
+}
+
+.btn-danger-dark {
+  background-color: darkred;
+  color: white;
+}
+
+.btn-dark {
+  background-color: rgb(94, 91, 91);
+  color: white;
+}
+
+/* BARS */
+
+.bar {
+  width: 100%;
+  height: 20px;
+  border: 1px solid #000;
+}
+
+.bar-progress {
+  width: 100%;
+  height: 20px;
+  background-color: green;
+}

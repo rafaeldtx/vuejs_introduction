@@ -7,13 +7,37 @@
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://unpkg.com/vue"></script>
-
+  
 </head>
 <body>
   <div id="app">
+    <h1 class="text-center">O Matador de Monstro</h1>
+    <div class="card flex rounded">
+      <div class="flex-grow text-center padding">
+        <h3>Herói</h3>
+        <div class="bar">
+          <div class="bar-progress"></div>
+        </div>
+        <span>100/100</span>
+      </div>
+      
+      <div class="flex-grow text-center padding">
+        <h3>Monstro</h3>
+        <div class="bar mb-1">
+          <div class="bar-progress"></div>
+        </div>
+        <span>100/100</span>
+      </div>
+    </div>
     
+    <div class="card flex rounded">
+      <button class="btn btn-danger rounded">ATAQUE</button>
+      <button class="btn btn-danger-dark rounded">ATAQUE ESPECIAL</button>
+      <button class="btn btn-success rounded">CURAR</button>
+      <button class="btn btn-dark rounded">DESISTIR</button>
+    </div>
   </div>
-
+  
   <script src="app.js"></script>
 </body>
 </html>

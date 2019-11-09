@@ -1,4 +1,4 @@
-new VTTCue({
+new Vue({
   el: '#app',
   methods: {
     
