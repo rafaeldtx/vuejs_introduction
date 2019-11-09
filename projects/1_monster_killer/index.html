@@ -16,24 +16,24 @@
       <div class="flex-grow text-center padding">
         <h3>Herói</h3>
         <div class="bar">
-          <div class="bar-progress"></div>
+          <div class="bar-progress" :style="[{width: `${hero}%`}]"></div>
         </div>
-        <span>100/100</span>
+        <span>{{ hero }}/100</span>
       </div>
       
       <div class="flex-grow text-center padding">
         <h3>Monstro</h3>
         <div class="bar mb-1">
-          <div class="bar-progress"></div>
+          <div class="bar-progress" :style="[{width: `${monster}%`}]"></div>
         </div>
-        <span>100/100</span>
+        <span>{{ monster }}/100</span>
       </div>
     </div>
     
     <div class="card flex rounded">
-      <button class="btn btn-danger rounded">ATAQUE</button>
-      <button class="btn btn-danger-dark rounded">ATAQUE ESPECIAL</button>
-      <button class="btn btn-success rounded">CURAR</button>
+      <button class="btn btn-danger rounded" @click='attack'>ATAQUE</button>
+      <button class="btn btn-danger-dark rounded" @click='special_attack'>ATAQUE ESPECIAL</button>
+      <button class="btn btn-success rounded" @click='health'>CURAR</button>
       <button class="btn btn-dark rounded">DESISTIR</button>
     </div>
   </div>
