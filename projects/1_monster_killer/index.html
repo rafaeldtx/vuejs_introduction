@@ -29,6 +29,10 @@
         <span>{{ monster }}/100</span>
       </div>
     </div>
+
+    <div class="result">
+      
+    </div>
     
     <div class="card flex rounded">
       <button class="btn btn-danger rounded" @click='attack'>ATAQUE</button>
@@ -37,7 +41,10 @@
       <button class="btn btn-dark rounded">DESISTIR</button>
     </div>
 
-    <div v-for='log in logs'>{{ log }}</div>
+    <div class="card rounded">
+      <div v-for='log in logs'>{{ log }}</div>
+    </div>
+
   </div>
   
   <script src="app.js"></script>
