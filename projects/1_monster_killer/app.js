@@ -4,7 +4,8 @@ new Vue({
     hero: 100,
     monster: 100,
     default_life: 100,
-    logs: []
+    logs: [],
+    status: false,
   },
   computed: {
 
@@ -27,6 +28,8 @@ new Vue({
     battle(type, range, target) {
       math = Math.floor(Math.random() * (range.max - range.min + 1) + range.min);
 
+      this.logs.push(`${target} has been hit in ${math}`)
+      
       if (type == 'minus') 
         if((this[target] - math) < 0)
           this[target] = 0
