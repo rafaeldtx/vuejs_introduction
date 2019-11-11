@@ -2,7 +2,7 @@ new Vue({
   el: '#app',
   data: {
     status: false,
-    hero: 0,
+    hero: 100,
     monster: 100,
     default_life: 100,
     logs: [],
@@ -19,37 +19,25 @@ new Vue({
       this.monster = this.default_life
     },
     attack(especial) {
-      this.hurt('hero', 7, 12, false)
       this.hurt('monster', 5, 10, especial)
-    },
-    hurt(attr, min, max, especial){
-      const plus = especial ? 5 : 0;
-      const hurt = this.getRandom(min + plus, max + plus)
-      this[attr] = Math.max(this[attr] - hurt, 0)
+      this.hurt('hero', 7, 12, false)
     },
     getRandom(min,max) {
       const value = Math.random() * (max - min) + min
       return Math.floor(value)
     },
-    health() {
-      this.battle('plus', { min: 6, max: 11 }, 'hero')
-      this.battle('minus', { min: 3, max: 11 }, 'hero')
+    healAndHurt() {
+      this.heal(10, 15)
+      this.hurt('hero', 7, 12, false)
     },
-    battle(type, range, target) {
-      math = Math.floor(Math.random() * (range.max - range.min + 1) + range.min);
-
-      this.logs.push(`${target} has been hit in ${math}`)
-      
-      if (type == 'minus') 
-        if((this[target] - math) < 0)
-          this[target] = 0
-        else
-          this[target]-= math
-      else
-        if((this[target] + math) > 100)
-          this[target] = 100
-        else
-          this[target] += math
+    heal(min, max) {
+      const heal = this.getRandom(min, max)
+      this.hero = Math.min(this.hero + heal, 100)
+    },
+    hurt(attr, min, max, especial){
+      const plus = especial ? 5 : 0;
+      const hurt = this.getRandom(min + plus, max + plus)
+      this[attr] = Math.max(this[attr] - hurt, 0)
     },
   },
   watch: {

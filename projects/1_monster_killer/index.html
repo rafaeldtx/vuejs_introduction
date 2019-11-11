@@ -39,7 +39,7 @@
       <template v-if='status'>
         <button class="btn btn-danger rounded" @click='attack(false)'>ATAQUE</button>
         <button class="btn btn-danger-dark rounded" @click='attack(true)'>ATAQUE ESPECIAL</button>
-        <button class="btn btn-success rounded" @click='health'>CURAR</button>
+        <button class="btn btn-success rounded" @click='healAndHurt()'>CURAR</button>
         <button class="btn btn-dark rounded" @click='status = false'>DESISTIR</button>
       </template>
       <button v-else @click="start" class="btn btn-primary rounded">INICIAR JOGO</button>
