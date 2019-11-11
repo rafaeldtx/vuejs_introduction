@@ -16,7 +16,7 @@
       <div class="flex-grow text-center padding">
         <h3>Herói</h3>
         <div class="bar">
-          <div class="bar-progress" :style="[{width: `${hero}%`}]"></div>
+          <div class="bar-progress" :class="{danger: hero < 20}" :style="[{width: `${hero}%`}]"></div>
         </div>
         <span>{{ hero }}/100</span>
       </div>
@@ -24,14 +24,13 @@
       <div class="flex-grow text-center padding">
         <h3>Monstro</h3>
         <div class="bar mb-1">
-          <div class="bar-progress" :style="[{width: `${monster}%`}]"></div>
+          <div class="bar-progress" :class="{danger: monster < 20}" :style="[{width: `${monster}%`}]"></div>
         </div>
         <span>{{ monster }}/100</span>
       </div>
     </div>
 
     <div class="result">
-      
     </div>
     
     <div class="card flex rounded">

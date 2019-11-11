@@ -78,3 +78,7 @@
   height: 20px;
   background-color: green;
 }
+
+.bar-progress.danger {
+  background-color: red !important;
+}

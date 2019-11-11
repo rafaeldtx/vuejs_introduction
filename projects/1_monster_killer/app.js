@@ -10,8 +10,6 @@ new Vue({
   computed: {
 
   },
-  watch: {
-  },
   methods: {
     attack() {
       this.battle('minus', { min: 6, max: 11 }, 'hero')
@@ -40,6 +38,8 @@ new Vue({
           this[target] = 100
         else
           this[target] += math
+    },
+    watch: {
     },
   }
 })
