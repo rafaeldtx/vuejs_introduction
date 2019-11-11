@@ -45,8 +45,10 @@
       <button v-else @click="start" class="btn btn-primary rounded">INICIAR JOGO</button>
     </div>
 
-    <div class="card rounded">
-      <div v-for='log in logs'>{{ log }}</div>
+    <div class="card rounded logs" v-if='logs.length'>
+      <ul>
+        <li v-for="log in logs" class="log" :class='log.cls'>{{ log.text }}</li>
+      </ul>
     </div>
 
   </div>
