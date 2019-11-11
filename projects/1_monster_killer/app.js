@@ -18,13 +18,18 @@ new Vue({
       this.hero = this.default_life
       this.monster = this.default_life
     },
-    attack() {
-      this.battle('minus', { min: 6, max: 11 }, 'hero')
-      this.battle('minus', { min: 3, max: 7 }, 'monster')
+    attack(especial) {
+      this.hurt('hero', 7, 12, false)
+      this.hurt('monster', 5, 10, especial)
     },
-    special_attack() {
-      this.battle('minus', { min: 3, max: 7 }, 'hero')
-      this.battle('minus', { min: 6, max: 11 }, 'monster')
+    hurt(attr, min, max, especial){
+      const plus = especial ? 5 : 0;
+      const hurt = this.getRandom(min + plus, max + plus)
+      this[attr] = Math.max(this[attr] - hurt, 0)
+    },
+    getRandom(min,max) {
+      const value = Math.random() * (max - min) + min
+      return Math.floor(value)
     },
     health() {
       this.battle('plus', { min: 6, max: 11 }, 'hero')
@@ -46,7 +51,11 @@ new Vue({
         else
           this[target] += math
     },
-    watch: {
-    },
-  }
+  },
+  watch: {
+    hasResult(value) {
+      console.log(value)
+      if(value) this.status = false
+    }
+  },
 })
