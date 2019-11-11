@@ -1,16 +1,23 @@
 new Vue({
   el: '#app',
   data: {
-    hero: 100,
+    status: false,
+    hero: 0,
     monster: 100,
     default_life: 100,
     logs: [],
-    status: false,
   },
   computed: {
-
+    hasResult(){
+      return this.hero == 0 || this.monster == 0
+    }
   },
   methods: {
+    start() {
+      this.status = true
+      this.hero = this.default_life
+      this.monster = this.default_life
+    },
     attack() {
       this.battle('minus', { min: 6, max: 11 }, 'hero')
       this.battle('minus', { min: 3, max: 7 }, 'monster')

@@ -33,6 +33,7 @@
 
 .btn {
   padding: 0.5rem;
+  border-radius: 5px;
 }
 
 .btn-primary {
@@ -81,4 +82,19 @@
 
 .bar-progress.danger {
   background-color: red !important;
+}
+
+/* Result */
+
+.result {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.result .win {
+  color: green;
+}
+
+.result .lose {
+  color: red;
 }
