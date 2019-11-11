@@ -50,7 +50,6 @@ new Vue({
   },
   watch: {
     hasResult(value) {
-      console.log(value)
       if(value) this.status = false
     }
   },
