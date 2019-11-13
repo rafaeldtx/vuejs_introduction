@@ -2,28 +2,46 @@
 
 <script src="https://unpkg.com/vue"></script>
 
-<div id="app">
-  <CONTADOR></CONTADOR>
-  <CONTADOR></CONTADOR>
-  <CONTADOR></CONTADOR>
+<div id="app1">
+  <CONTADOR1></CONTADOR1>
+  <CONTADOR1></CONTADOR1>
+  <CONTADOR1></CONTADOR1>
+</div>
+<hr>
+<div id="app2">
+  <app-contador></app-contador>
+  <app-contador></app-contador>
+  <app-contador></app-contador>
 </div>
 
 <script>
-  Vue.component('contador', {
+  //  Registro Global
+  const contador = {
     template: `
-      <div>
-        <span>{{ contador }}</span>
-        <button @click="contador++">+</button>
-        <button @click="contador--">-</button>
-      </div>
+    <div>
+      <span>{{ contador }}</span>
+      <button @click="contador++">+</button>
+      <button @click="contador--">-</button>
+    </div>
     `,
     data() {
       return {
         contador: 0
       }
     }
-  })
+  }
+  
   new Vue({
-    el: '#app',
+    el: '#app1',
+    components: {
+      contador1: contador
+    }
+  })
+  
+  new Vue({
+    el: '#app2',
+    components: {
+      'app-contador': contador
+    }
   })
 </script>
