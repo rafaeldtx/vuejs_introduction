@@ -5,6 +5,7 @@
     <button @click="subtrair">-</button>
   </div>
 </template>
+
 <script>
 export default {
   data() {
