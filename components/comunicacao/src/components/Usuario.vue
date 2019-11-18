@@ -8,7 +8,8 @@
         <div class="componentes">
             <app-usuario-info 
               :name="name"
-              @nameChanged="name = $event" />
+              @nameChanged="name = $event"
+              :resetNameFn="resetName" />
             <app-usuario-editar />
         </div>
     </div>
@@ -28,6 +29,9 @@ export default {
     methods: {
       changeName() {
           this.name = 'Ana'
+      },
+      resetName() {
+          this.name = 'Pedro'
       }
     }
 }
