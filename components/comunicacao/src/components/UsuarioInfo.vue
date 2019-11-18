@@ -11,8 +11,11 @@ export default {
     props: {
         name: {
             type: String,
-            default: 'Anônimo'
             // required: true,
+            default: 'Anônimo'
+            // default: () => {
+            //     return Array(10).fill(0).join(',')
+            // }
         }
     },
     methods: {
