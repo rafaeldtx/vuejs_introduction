@@ -35,7 +35,7 @@ export default {
         }
     },
     created(){
-        barramento.$on('changedAge', age => {
+        barramento.whenAgeChanges(age => {
             this.age = age
         })
     }
