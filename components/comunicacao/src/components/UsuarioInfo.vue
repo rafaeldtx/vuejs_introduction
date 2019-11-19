@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import barramento from '@/barramento.js'
+
 export default {
     props: {
         name: {
@@ -31,6 +33,11 @@ export default {
             this.name = 'Pedro'
             this.$emit('nameChanged', this.name)
         }
+    },
+    created(){
+        barramento.$on('changedAge', age => {
+            this.age = age
+        })
     }
 }
 </script>

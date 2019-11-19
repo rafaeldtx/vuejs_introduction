@@ -8,12 +8,14 @@
 </template>
 
 <script>
+import barramento from '@/barramento.js'
+
 export default {
     props: ['age'],
     methods: {
         changeAge() {
-            // this.age = 33
-            this.$emit('changedAge', 33)
+            this.age += 1
+            barramento.$emit('changedAge', this.age)
         }
     }
 }
