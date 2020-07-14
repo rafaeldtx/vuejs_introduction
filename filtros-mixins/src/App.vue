@@ -2,11 +2,18 @@
 	<div id="app">
 		<h1>Filtros & Mixins</h1>
         <h4>CPF: {{cpf | cpf_mask}} </h4>
+
+        <hr>
+
+        <fruit />
 	</div>
 </template>
 
 <script>
+import Fruit from '@/components/Fruit'
+
 export default {
+    components: { Fruit },
     filters: {
         cpf_mask(cpf) {
             const arr = cpf.split('')
