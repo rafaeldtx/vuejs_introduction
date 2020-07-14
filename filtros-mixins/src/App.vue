@@ -1,12 +1,26 @@
 <template>
 	<div id="app">
 		<h1>Filtros & Mixins</h1>
+        <h4>CPF: {{cpf | cpf_mask}} </h4>
 	</div>
 </template>
 
 <script>
 export default {
-
+    filters: {
+        cpf_mask(cpf) {
+            const arr = cpf.split('')
+            arr.splice(3, 0, '-')
+            arr.splice(7, 0, '-')
+            arr.splice(11, 0, '-')
+            return arr.join('')
+        }
+    },
+    data() {
+        return {
+            cpf: '12345678910'
+        }
+    }
 }
 </script>
 
