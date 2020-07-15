@@ -30,29 +30,12 @@ export default {
 	margin-top: 60px;
 	font-size: 1.5rem;
 }
-/* INITIAL ANIMATION STATE */
-.fade-enter {
+/* INITIAL ENTER/LEAVE STATE ANIMATION  */
+.fade-enter, .face-leave-to {
     opacity: 0;
 }
-/* DURING ANIMATION STATE */
-.fade-enter-active {
+/* DURING ENTER/LEAVE ACTIVE ANIMATION */
+.fade-enter-active, .fade-leave-active {
    transition: opacity 2s;
-}
-/* FINISHED ANIMATION STATE */
-.face-enter-to {
-    opacity: 1;
-}
-
-/* INITIAL LEAVE ANIMATION STATE */
-.fade-leave {
-    opacity: 1;
-}
-/* DURING LEAVE ANIMATION STATE */
-.fade-leave-active {
-   transition: opacity 2s;
-}
-/* FINISHED LEAVE ANIMATION STATE */
-.face-leave-to {
-    opacity: 0;
 }
 </style>
