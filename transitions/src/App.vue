@@ -5,11 +5,11 @@
 
         <b-button variant="primary" @click="show = !show" class="mb-3">Show message</b-button>
 
-        <transition name="fade">
+        <transition name="fade" appear>
             <b-alert variant="info" show v-if="show">This is a bootstrap message with fade animation</b-alert>
         </transition>
 
-        <transition name="slide" type='animation'>
+        <transition name="slide" type='animation' appear>
             <b-alert variant="info" show v-if="show">This is a bootstrap message with slide animation</b-alert>
         </transition>
 	</div>
@@ -20,7 +20,7 @@
 export default {
     data() {
         return {
-            show: false
+            show: true
         }
     }
 }
