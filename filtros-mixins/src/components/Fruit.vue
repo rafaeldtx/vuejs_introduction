@@ -14,21 +14,10 @@
 </template>
 
 <script>
+import fruitMixin from '@/mixins/fruitMixin.js'
+
 export default {
-    data() {
-        return {
-            fruit: null,
-            fruits: []
-        }
-    },
-    methods: {
-        add() {
-            if(this.fruit) {
-                this.fruits.push(this.fruit)
-                this.fruit = null
-            }
-        }
-    }
+    mixins: [fruitMixin]
 }
 </script>
 
