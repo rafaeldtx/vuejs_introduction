@@ -7,7 +7,10 @@
 </template>
 
 <script>
+import computedMixin from '@/mixins/computedMixin.js'
+
 export default {
+    mixins: [computedMixin],
     filters: {
         space_to_comma(sentence) {
             return sentence.replace(/\s/g, ',')
@@ -17,14 +20,6 @@ export default {
          return {
              fruits: 'Maçã Pera Melancia Abacate'
          }
-    },
-    computed: {
-        using_words_length() {
-            return this.fruits.replace(/\s/g, ',')
-        },
-        using_space_to_comma() {
-            return this.fruits.split(' ').map(fruit => `${fruit} (${fruit.length})`).join(' ')
-        }
     }
 }
 </script>
