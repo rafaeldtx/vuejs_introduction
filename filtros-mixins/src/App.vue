@@ -6,14 +6,19 @@
         <hr>
 
         <fruit />
+
+        <hr>
+
+        <mixin-challenge />
 	</div>
 </template>
 
 <script>
 import Fruit from '@/components/Fruit'
+import MixinChallenge from '@/components/MixinChallenge'
 
 export default {
-    components: { Fruit },
+    components: { Fruit, MixinChallenge },
     filters: {
         cpf_mask(cpf) {
             const arr = cpf.split('')
