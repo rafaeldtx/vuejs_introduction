@@ -7,7 +7,7 @@ export default {
     },
     methods: {
         add() {
-            if(this.fruit) {
+            if(this.fruit && !this.fruits.includes(this.fruit)) {
                 this.fruits.push(this.fruit)
                 this.fruit = null
             }

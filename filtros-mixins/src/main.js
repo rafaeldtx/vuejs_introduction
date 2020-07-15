@@ -9,6 +9,12 @@ Vue.mixin({
     }
 })
 
+Vue.filter('words_length', (value) => {
+    return value.split(' ').map(word => {
+        return `${word}(${word.length})`
+    }).join(' ')
+})
+
 new Vue({
 	render: h => h(App)
 }).$mount('#app')
