@@ -1,13 +1,22 @@
 <template>
 	<div id="app" class="container-fluid">
 		<h1>Animações</h1>
+        <hr>
+        <b-button variant="primary" @click="show = !show" class="mb-3">Show message</b-button>
+        <transition>
+            <b-alert variant="primary" show v-if="show">This is a bootstrap message with toggle animation</b-alert>
+        </transition>
 	</div>
 </template>
 
 <script>
 
 export default {
-
+    data() {
+        return {
+            show: false
+        }
+    }
 }
 </script>
 
