@@ -12,6 +12,14 @@
         <transition name="slide" type='animation' appear>
             <b-alert variant="info" show v-if="show">This is a bootstrap message with slide animation</b-alert>
         </transition>
+
+        <transition
+            enter-active-class="animated bounce"
+            leave-active-class="animated shake"
+            appear
+        >
+            <b-alert variant="info" show v-if="show">This is a bootstrap message with slide animation</b-alert>
+        </transition>
 	</div>
 </template>
 
