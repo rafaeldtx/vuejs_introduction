@@ -6,11 +6,11 @@
         <b-button variant="primary" @click="show = !show" class="mb-3">Show message</b-button>
 
         <transition name="fade" appear>
-            <b-alert variant="info" show v-if="show">This is a bootstrap message with fade animation</b-alert>
+            <b-alert variant="info" show v-if="show">This is a bootstrap alert with fade animation</b-alert>
         </transition>
 
         <transition name="slide" type='animation' appear>
-            <b-alert variant="info" show v-if="show">This is a bootstrap message with slide animation</b-alert>
+            <b-alert variant="info" show v-if="show">This is a bootstrap alert with slide animation</b-alert>
         </transition>
 
         <transition
@@ -18,8 +18,20 @@
             leave-active-class="animated shake"
             appear
         >
-            <b-alert variant="info" show v-if="show">This is a bootstrap message with slide animation</b-alert>
+            <b-alert variant="info" show v-if="show">This is a bootstrap alert with custom transition classes</b-alert>
         </transition>
+
+        <hr>
+
+        <b-select v-model="animationType" class="mb-3">
+            <option value="fade">Fade</option>
+            <option value="slide">Slide</option>
+        </b-select>
+
+        <transition :name="animationType" appear>
+            <b-alert variant="info" show v-if="show">This is a bootstrap alert with slide animation</b-alert>
+        </transition>
+
 	</div>
 </template>
 
@@ -28,7 +40,8 @@
 export default {
     data() {
         return {
-            show: true
+            show: true,
+            animationType: 'fade'
         }
     }
 }
