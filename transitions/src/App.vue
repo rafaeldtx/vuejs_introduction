@@ -33,6 +33,23 @@
             <b-alert variant="warning" show v-else key="warn">This is a bootstrap alert with slide animation</b-alert>
         </transition>
 
+        <hr>
+
+        <b-button variant="secondary" @click="toggle_js_animation = !toggle_js_animation" class="mb-3">Show animated js width box</b-button>
+
+        <transition
+            @beforeEnter="beforeEnter"
+            @enter="enter"
+            @afterEnter="afterEnter"
+            @enterCancelled="enterCancelled"
+
+            @beforeLeave="beforeLeave"
+            @leave="leave"
+            @afterLeave="afterLeave"
+            @leaveCancelled="leaveCancelled"
+        >
+            <div variant="warning" v-show="toggle_js_animation" show class="box-animation"></div>
+        </transition>
 	</div>
 </template>
 
@@ -42,8 +59,50 @@ export default {
     data() {
         return {
             show: true,
-            animationType: 'fade'
+            animationType: 'fade',
+            toggle_js_animation: false,
+            baseWidth: 0
         }
+    },
+    methods: {
+        widthAnimate(el, done, positive = true) {
+            let role = 0
+            const interval = setInterval(() => {
+                const newWidth = this.baseWidth + (positive? role : -role) * 10
+                el.style.width = `${newWidth}px`
+                role++
+                if (role > 30) {
+                    clearInterval(interval)
+                    done()
+                }
+            }, 20)
+            console.log("enter");
+        },
+        beforeEnter() {
+            this.baseWidth = 0
+        },
+        enter(el, done) {
+            this.widthAnimate(el, done)
+        },
+        afterEnter() {
+            console.log("afterEnter");
+        },
+        enterCancelled() {
+            console.log("enterCancelled");
+        },
+
+        beforeLeave() {
+            this.baseWidth = 300
+        },
+        leave(el, done) {
+            this.widthAnimate(el, done, false)
+        },
+        afterLeave() {
+            console.log("afterLeave");
+        },
+        leaveCancelled() {
+            console.log("leaveCancelled");
+        },
     }
 }
 </script>
@@ -58,6 +117,14 @@ export default {
 	margin-top: 60px;
 	font-size: 1.5rem;
 }
+
+.box-animation {
+    background-color: lightgreen;
+    height: 100px;
+    margin: 30px auto;
+    width: 0px;
+}
+
 /* INITIAL ENTER/LEAVE STATE OPACITY  */
 .fade-enter, .fade-leave-to {
     opacity: 0;
