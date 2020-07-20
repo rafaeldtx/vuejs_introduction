@@ -28,8 +28,9 @@
             <option value="slide">Slide</option>
         </b-select>
 
-        <transition :name="animationType" appear>
-            <b-alert variant="info" show v-if="show">This is a bootstrap alert with slide animation</b-alert>
+        <transition :name="animationType" mode="out-in">
+            <b-alert variant="info" show v-if="show" key="info">This is a bootstrap alert with slide animation</b-alert>
+            <b-alert variant="warning" show v-else key="warn">This is a bootstrap alert with slide animation</b-alert>
         </transition>
 
 	</div>
