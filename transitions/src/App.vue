@@ -50,18 +50,28 @@
         >
             <div variant="warning" v-show="toggle_js_animation" show class="box-animation"></div>
         </transition>
+
+        <hr>
+
+        <b-button variant="primary" @click="selectedComponent = 'AlertInfo'">Info</b-button>
+        <b-button variant="primary" @click="selectedComponent = 'AlertWarning'">Warning</b-button>
+        <component :is="selectedComponent"></component>
 	</div>
 </template>
 
 <script>
+import AlertWarning from "@/AlertWarning"
+import AlertInfo from "@/AlertInfo"
 
 export default {
+    components: { AlertWarning, AlertInfo },
     data() {
         return {
             show: true,
             animationType: 'fade',
             toggle_js_animation: false,
-            baseWidth: 0
+            baseWidth: 0,
+            selectedComponent: 'AlertInfo'
         }
     },
     methods: {
