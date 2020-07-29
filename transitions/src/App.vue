@@ -53,9 +53,14 @@
 
         <hr>
 
-        <b-button variant="primary" @click="selectedComponent = 'AlertInfo'">Info</b-button>
-        <b-button variant="primary" @click="selectedComponent = 'AlertWarning'">Warning</b-button>
-        <component :is="selectedComponent"></component>
+        <div class="mb-3">
+            <b-button class="mr-3" variant="info" @click="selectedComponent = 'AlertInfo'">Info</b-button>
+            <b-button variant="warning" @click="selectedComponent = 'AlertWarning'">Warning</b-button>
+        </div>
+
+        <transition name="fade" mode="out-in">
+            <component :is="selectedComponent"></component>
+        </transition>
 	</div>
 </template>
 
