@@ -67,12 +67,14 @@
         <b-button @click="addStudent" class="primary mb-3"> Add Student</b-button>
 
         <b-list-group>
-            <b-list-group-item
-                v-for="(student, i) in students" :key="student"
-                @click="removeStudent(i)"
-            >
-                {{ student }}
-            </b-list-group-item>
+            <transition-group name="slide" tag="div">
+                <b-list-group-item
+                    v-for="(student, i) in students" :key="student"
+                    @click="removeStudent(i)"
+                >
+                    {{ student }}
+                </b-list-group-item>
+            </transition-group>
         </b-list-group>
 	</div>
 </template>
@@ -187,11 +189,17 @@ export default {
     transition: opacity 6s;
 }
 .slide-leave-active {
+    position: absolute;
+    width: 100%;
     animation: slide-out 2s ease;
     transition: opacity 2s;
 }
 
 .slide-enter, .slide-leave-to {
     opacity: 0;
+}
+
+.slide-move {
+    transition: transform 1s;
 }
 </style>
