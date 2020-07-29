@@ -2,7 +2,7 @@
 	<div id="app" class="container-fluid">
 		<h1>Animações</h1>
         <hr>
-
+<!--
         <b-button variant="primary" @click="show = !show" class="mb-3">Show message</b-button>
 
         <transition name="fade" appear>
@@ -60,7 +60,12 @@
 
         <transition name="fade" mode="out-in">
             <component :is="selectedComponent"></component>
-        </transition>
+        </transition> -->
+
+        <hr>
+        <b-list-group>
+            <b-list-group-item v-for="student in students" :key="student">{{ student }}</b-list-group-item>
+        </b-list-group>
 	</div>
 </template>
 
@@ -76,7 +81,8 @@ export default {
             animationType: 'fade',
             toggle_js_animation: false,
             baseWidth: 0,
-            selectedComponent: 'AlertInfo'
+            selectedComponent: 'AlertInfo',
+            students: ['João', 'Pedro', 'Paulo', 'Joaquim']
         }
     },
     methods: {
