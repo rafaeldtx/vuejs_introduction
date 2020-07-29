@@ -63,8 +63,16 @@
         </transition> -->
 
         <hr>
+
+        <b-button @click="addStudent" class="primary mb-3"> Add Student</b-button>
+
         <b-list-group>
-            <b-list-group-item v-for="student in students" :key="student">{{ student }}</b-list-group-item>
+            <b-list-group-item
+                v-for="(student, i) in students" :key="student"
+                @click="removeStudent(i)"
+            >
+                {{ student }}
+            </b-list-group-item>
         </b-list-group>
 	</div>
 </template>
@@ -86,6 +94,14 @@ export default {
         }
     },
     methods: {
+        addStudent() {
+            const string = Math.random().toString(36).substring(2)
+
+            this.students.push(string)
+        },
+        removeStudent(index) {
+            this.students.splice(index, 1)
+        },
         widthAnimate(el, done, positive = true) {
             let role = 0
             const interval = setInterval(() => {
