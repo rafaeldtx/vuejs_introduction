@@ -2,7 +2,7 @@
 	<div id="app" class="container-fluid">
 		<h1>Animações</h1>
         <hr>
-<!--
+
         <b-button variant="primary" @click="show = !show" class="mb-3">Show message</b-button>
 
         <transition name="fade" appear>
@@ -60,7 +60,7 @@
 
         <transition name="fade" mode="out-in">
             <component :is="selectedComponent"></component>
-        </transition> -->
+        </transition>
 
         <hr>
 
