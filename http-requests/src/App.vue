@@ -32,7 +32,23 @@
             >
             Save
             </b-button>
+            <b-button
+                @click.prevent="getUsers"
+                size="lg"
+                variant="success"
+                class="ml-3"
+            >
+            Get Users
+            </b-button>
         </b-card>
+
+        <b-list-group class="mt-3">
+            <b-list-group-item v-for="(user, id) in users" :key="id">
+                <strong>ID:</strong> {{ id }} <br>
+                <strong>Name:</strong> {{ user.name }} <br>
+                <strong>Email:</strong> {{ user.email }}<br>
+            </b-list-group-item>
+        </b-list-group>
 	</div>
 </template>
 
@@ -43,7 +59,8 @@ export default {
             user:{
                 name: '',
                 email: ''
-            }
+            },
+            users: []
         }
     },
     methods: {
@@ -53,6 +70,11 @@ export default {
                     this.user.name = '',
                     this.user.email = ''
                 })
+        },
+        getUsers() {
+            this.$http('users.json').then((res) => {
+                this.users = res.data
+            })
         }
     }
     // created() {
