@@ -2,12 +2,18 @@ import Vue from 'vue'
 import axios from 'axios'
 
 // axios.defaults.baseURL = 'https://vuejs-projects-6888d.firebaseio.com/'
-
+axios.defaults.headers.common['Authorization'] = 'global-authorization'
+axios.defaults.headers.get['Accepts'] = 'application/json'
 Vue.use({
     install(Vue) {
-        // Vue.prototype.$http = axios
         Vue.prototype.$http = axios.create({
-            baseURL: 'https://vuejs-projects-6888d.firebaseio.com/'
+            baseURL: 'https://vuejs-projects-6888d.firebaseio.com/',
+            headers: {
+                // authorization: 'other-global-authorization',
+                get: {
+                    authorization: 'only-get-authorization'
+                }
+            }
         })
 
         Vue.prototype.$http.interceptors.request.use(config => {
