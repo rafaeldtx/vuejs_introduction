@@ -47,6 +47,14 @@
                 <strong>ID:</strong> {{ id }} <br>
                 <strong>Name:</strong> {{ user.name }} <br>
                 <strong>Email:</strong> {{ user.email }}<br>
+                <hr>
+
+                <b-button variant="info" size="lg" @click="loadUser(id)">
+                    Load User
+                </b-button>
+                <b-button variant="danger" size="lg" @click="remove(id)">
+                    Remove
+                </b-button>
             </b-list-group-item>
         </b-list-group>
 	</div>
@@ -57,6 +65,7 @@ export default {
     data() {
         return {
             user:{
+                id: null,
                 name: '',
                 email: ''
             },
@@ -65,11 +74,27 @@ export default {
     },
     methods: {
         save() {
-            this.$http.post('users.json', this.user)
+            const method =  this.user.id ? 'patch' : 'post'
+            const extend_url = this.user.id ? `/${this.user.id}.json` : '.json'
+
+            this.$http[method](`users${extend_url}`, this.user)
                 .then(res => {
-                    this.user.name = '',
-                    this.user.email = ''
+                    this.cleanInput()
+                    this.getUsers()
                 })
+        },
+        remove(id) {
+            this.$http.delete(`users/${id}.json`).then(() => {
+                this.getUsers()
+            })
+        },
+        loadUser(id) {
+            this.user = {id: id, ...this.users[id]}
+        },
+        cleanInput() {
+            this.user.id = null,
+            this.user.name = '',
+            this.user.email = ''
         },
         getUsers() {
             this.$http('users.json').then((res) => {
