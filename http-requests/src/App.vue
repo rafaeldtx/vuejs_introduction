@@ -2,6 +2,10 @@
 	<div id="app" class="container">
 		<h1>HTTP with Axios</h1>
 
+        <b-alert show dismissable :variant="alert.type" v-if="alert">
+            {{ alert.message }}
+        </b-alert>
+
         <b-card>
             <b-form-group label="Name:">
                 <b-form-input
@@ -47,7 +51,6 @@
                 <strong>ID:</strong> {{ id }} <br>
                 <strong>Name:</strong> {{ user.name }} <br>
                 <strong>Email:</strong> {{ user.email }}<br>
-                <hr>
 
                 <b-button variant="info" size="lg" @click="loadUser(id)">
                     Load User
@@ -69,7 +72,8 @@ export default {
                 name: '',
                 email: ''
             },
-            users: []
+            users: [],
+            alert: null
         }
     },
     methods: {
@@ -81,6 +85,12 @@ export default {
                 .then(res => {
                     this.cleanInput()
                     this.getUsers()
+                    this.alertMessage('success', 'Record saved successfully!')
+                })
+                .catch(err => {
+                    this.alertMessage(
+                        'danger', 'An error occurred! Record can\'t be save!'
+                    )
                 })
         },
         remove(id) {
@@ -100,14 +110,14 @@ export default {
             this.$http('users.json').then((res) => {
                 this.users = res.data
             })
+        },
+        alertMessage(type, message) {
+            this.alert = {
+                type: type,
+                message: message
+            }
         }
     }
-    // created() {
-    //     this.$http.post('usuarios.json', {
-    //         name: 'rafael',
-    //         email: 'rafael@example.com'
-    //     }).then(res => console.log(res))
-    // }
 }
 </script>
 
