@@ -2,7 +2,7 @@
 	<div id="app" class="container">
 		<h1>HTTP with Axios</h1>
 
-        <b-alert show dismissable :variant="alert.type" v-if="alert">
+        <b-alert show dismissible :variant="alert.type" v-if="alert">
             {{ alert.message }}
         </b-alert>
 
