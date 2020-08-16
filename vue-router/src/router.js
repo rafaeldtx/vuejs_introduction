@@ -12,17 +12,14 @@ Vue.use(Router)
 export default new Router({
   mode: 'history', // or hash
   routes: [
-    {
-      path: '/',
-      component: Home,
-    },
+    { path: '/', component: Home, name: 'Homepage' },
     {
       path: '/users',
       component: User,
       children: [
-        { path: '', component: UserIndex },
-        { path: ':id', component: UserShow, props: true },
-        { path: ':id/edit', component: UserEdit, props: true }
+        { path: '', component: UserIndex, name: 'UserIndex' },
+        { path: ':id', component: UserShow, props: true, name: 'UserShow'},
+        { path: ':id/edit', component: UserEdit, props: true, name: 'UserEdit' }
       ]
     }
   ]

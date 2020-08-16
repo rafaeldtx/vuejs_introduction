@@ -11,7 +11,7 @@
 export default {
   methods: {
     goHomepage() {
-      this.$router.push('/users')
+      this.$router.push({ name: 'UserIndex' })
       // this.$router.push({ path: '/' })
     }
   }
