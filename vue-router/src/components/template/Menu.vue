@@ -1,7 +1,9 @@
 <template>
   <nav class="menu">
-    <router-link to="/">Home Page</router-link>
-    <router-link to="/user/profile">User Profile</router-link>
+    <ul>
+      <router-link to="/" tag="li"><a>Home Page</a></router-link>
+      <router-link to="/user/profile" tag="li"><a>User Profile</a></router-link>
+    </ul>
   </nav>
 </template>
 
