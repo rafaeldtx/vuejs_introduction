@@ -1,9 +1,7 @@
 <template>
   <div class="usuario">
-    <h1>User profile</h1>
+    <h3>User Profile</h3>
     <p>ID: {{ id }}</p>
-    <hr>
-    <button sucesso @click="goHomepage">Back</button>
   </div>
 </template>
 
@@ -20,12 +18,6 @@ export default {
   //     this.id = to.params.id
   //   }
   // },
-  methods: {
-    goHomepage() {
-      this.$router.push('/')
-      // this.$router.push({ path: '/' })
-    }
-  }
 }
 </script>
 
