@@ -6,14 +6,15 @@ import Profile from '@/components/user/Profile'
 Vue.use(Router)
 
 export default new Router({
-    routes: [
-        {
-            path: '/',
-            component: Home,
-        },
-        {
-            path: '/user/profile',
-            component: Profile
-        }
-    ]
+  mode: 'history', // or hash
+  routes: [
+    {
+      path: '/',
+      component: Home,
+    },
+    {
+      path: '/user/profile',
+      component: Profile
+    }
+  ]
 })
