@@ -14,7 +14,8 @@ export default new Router({
     },
     {
       path: '/user/:id/profile',
-      component: Profile
+      component: Profile,
+      props: true
     }
   ]
 })
