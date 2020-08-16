@@ -2,6 +2,7 @@
   <div class="usuario">
     <h3>User Profile</h3>
     <p>ID: {{ id }}</p>
+    <router-link tag="button" :to="`/users/${id}/edit`">Edit</router-link>
   </div>
 </template>
 

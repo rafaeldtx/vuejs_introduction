@@ -5,6 +5,7 @@ import Home from '@/components/Home'
 import User from '@/components/user/User'
 import UserIndex from '@/components/user/Index'
 import UserShow from '@/components/user/Show'
+import UserEdit from '@/components/user/Edit'
 
 Vue.use(Router)
 
@@ -20,7 +21,9 @@ export default new Router({
       component: User,
       children: [
         { path: '', component: UserIndex },
-        { path: ':id', component: UserShow, props: true }      ]
+        { path: ':id', component: UserShow, props: true },
+        { path: ':id/edit', component: UserEdit, props: true }
+      ]
     }
   ]
 })
