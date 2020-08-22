@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import Menu from '@/components/template/Menu'
+import NotFound from '@/components/template/NotFound'
 
 import User from '@/components/user/User'
 import UserIndex from '@/components/user/Index'
@@ -26,6 +27,10 @@ export default new Router({
     {
       path: '/usr',
       redirect: '/users'
+    },
+    {
+      path: '*',
+      component: NotFound
     }
   ]
 })
