@@ -4,7 +4,11 @@
     <p>ID: {{ id }}</p>
     <router-link
       tag="button"
-      :to="{ name: 'UserEdit', params: { id } }"
+      :to="{
+        name: 'UserEdit',
+        params: { id },
+        query: { page: 2, language: 'en'}
+      }"
     >
       Edit
     </router-link>
