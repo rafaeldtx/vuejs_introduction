@@ -22,6 +22,10 @@ export default new Router({
         { path: ':id', component: UserShow, props: true, name: 'UserShow'},
         { path: ':id/edit', component: UserEdit, props: true, name: 'UserEdit' }
       ]
+    },
+    {
+      path: '/usr',
+      redirect: '/users'
     }
   ]
 })
