@@ -3,21 +3,14 @@
     <h1>Users</h1>
     <hr>
     <router-view />
-    <button sucesso @click="goHomepage">Back</button>
+    <return-button name="Homepage"/>
   </div>
 </template>
 
 <script>
+import ReturnButton from '@/components/template/ReturnButton'
+
 export default {
-  methods: {
-    goHomepage() {
-      this.$router.push({ name: 'Homepage' })
-      // this.$router.push({ path: '/' })
-    }
-  }
+  components: { ReturnButton }
 }
 </script>
-
-<style>
-
-</style>
