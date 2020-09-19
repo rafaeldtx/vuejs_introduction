@@ -4,10 +4,15 @@ import Home from '@/components/Home'
 import Menu from '@/components/template/Menu'
 import NotFound from '@/components/template/NotFound'
 
-import User from '@/components/user/User'
-import UserIndex from '@/components/user/Index'
-import UserShow from '@/components/user/Show'
-import UserEdit from '@/components/user/Edit'
+// import User from '@/components/user/User'
+// import UserIndex from '@/components/user/Index'
+// import UserShow from '@/components/user/Show'
+// import UserEdit from '@/components/user/Edit'
+
+const User = () => import(/* webpackChunkName: "user" */'@/components/user/User')
+const UserIndex = () => import(/* webpackChunkName: "user" */'@/components/user/Index')
+const UserShow = () => import(/* webpackChunkName: "user" */'@/components/user/Show')
+const UserEdit = () => import(/* webpackChunkName: "user" */'@/components/user/Edit')
 
 Vue.use(Router)
 
