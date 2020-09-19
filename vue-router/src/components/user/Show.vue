@@ -19,6 +19,12 @@
 <script>
 export default {
   props: ['id'],
+  beforeRouteEnter(to, from, next) {
+    console.log('inside user show')
+    next(vm => {
+      console.log(`user id: ${vm.id}`)
+    })
+  }
   // data() {
   //   return {
   //     id: this.$route.params.id
