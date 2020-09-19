@@ -9,7 +9,11 @@
 
 <script>
 export default {
-  props: ['id']
+  props: ['id'],
+  beforeRouteLeave(to, from, next) {
+    console.log('using beforeRouteLeave')
+    next()
+  }
 }
 </script>
 
