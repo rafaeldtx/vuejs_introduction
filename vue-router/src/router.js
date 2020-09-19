@@ -13,6 +13,11 @@ Vue.use(Router)
 
 export default new Router({
   mode: 'history', // or hash
+  scrollBehavior(to) {
+    if(to.hash) {
+      return { selector: to.hash }
+    }
+  },
   routes: [
     { path: '/', components: { default: Home, menu: Menu }, name: 'Homepage' },
     {
