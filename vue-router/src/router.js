@@ -11,10 +11,12 @@ import UserEdit from '@/components/user/Edit'
 
 Vue.use(Router)
 
-export default new Router({
+const router =  new Router({
   mode: 'history', // or hash
-  scrollBehavior(to) {
-    if(to.hash) {
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else if(to.hash) {
       return { selector: to.hash }
     }
   },
@@ -39,3 +41,5 @@ export default new Router({
     }
   ]
 })
+
+export default router
