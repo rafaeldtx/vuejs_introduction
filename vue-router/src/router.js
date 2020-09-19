@@ -28,7 +28,12 @@ const router =  new Router({
       children: [
         { path: '', component: UserIndex, name: 'UserIndex' },
         { path: ':id', component: UserShow, props: true, name: 'UserShow'},
-        { path: ':id/edit', component: UserEdit, props: true, name: 'UserEdit' }
+        { path: ':id/edit', component: UserEdit, props: true, name: 'UserEdit',
+          beforeEnter(to, from, next) {
+            console.log('Using beforeEnter inside of router-link')
+            next()
+        }
+      }
       ]
     },
     {
