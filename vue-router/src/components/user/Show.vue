@@ -7,7 +7,8 @@
       :to="{
         name: 'UserEdit',
         params: { id },
-        query: { page: 2, language: 'en'}
+        query: { page: 2, language: 'en'},
+        hash: '#footer'
       }"
     >
       Edit
