@@ -42,4 +42,12 @@ const router =  new Router({
   ]
 })
 
+router.beforeEach((to, from, next) => {
+  console.log('Using global router beforeEach')
+  console.log(`to: ${to.path}`)
+  console.log(`from: ${from.path}`)
+
+  next()
+})
+
 export default router
